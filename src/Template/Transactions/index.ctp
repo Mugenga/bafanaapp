@@ -35,9 +35,9 @@
                                         <td><?php echo $value['contribution_date']; ?></td>
                                         <td><?php echo $value["username"]; ?></td>
                                         <td><?php echo $value["amount"]; ?></td>
-                                        <td> 15% </td>
-                                        <td> <?php echo ($value["amount"] * 15) / 100; ?> </td>
-                                        <td><?php echo ($value["amount"] * 75) / 100; ?></td>
+                                        <td> 18% </td>
+                                        <td> <?php echo ($value["amount"] * 18) / 100; ?> </td>
+                                        <td><?php echo ($value["amount"] * 72) / 100; ?></td>
                                     </tr>
                                 <?php endforeach; ?>                           
                             </tbody>
