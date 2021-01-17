@@ -15,7 +15,7 @@
                 <div class="ibox-content">
                     <div class="row">
                         <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format(0); ?></h1>
+                            <h1 class="no-margins"><?php echo number_format($users); ?></h1>
                             <div class="font-bold text-navy"><small>Users</small></div>
                         </div>
                         <div class="col-md-2">
@@ -27,15 +27,15 @@
                             <div class="font-bold text-navy"><small>Settled</small></div>
                         </div>
                         <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format(0); ?></h1>
+                            <h1 class="no-margins"><?php echo number_format($income); ?></h1>
                             <div class="font-bold text-navy"><small>Income</small></div>
                         </div>
                         <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format(0); ?></h1>
+                            <h1 class="no-margins"><?php echo number_format($contributions); ?></h1>
                             <div class="font-bold text-navy"><small>Contributions</small></div>
                         </div>
                         <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format(0); ?></h1>
+                            <h1 class="no-margins"><?php echo number_format($review); ?></h1>
                             <div class="font-bold text-navy"><small>New Users</small></div>
                         </div>
                     </div>
