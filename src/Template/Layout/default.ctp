@@ -38,12 +38,13 @@
                                 Gz*
                             </div>
                         </li>
-                        <?php echo '<li>' . $this->Html->link('<i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span>', array('controller' => 'Dashboard'), array('escape' => false)) . '</li>'; ?>
+                        <?php echo '<li>' . $this->Html->link('<i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span>', array('controller' => 'Dashboard', 'action' => 'index'), array('escape' => false)) . '</li>'; ?>
                         <li>
                             <a href="index.html"><i class="fa fa-sitemap"></i> <span class="nav-label">Transactions</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                 <a href="/"></a>
+                                <?php echo $this->Html->link('Transactions', array('controller' => 'Transactions'), array('escape' => false)); ?>
                                 </li>
                             </ul>
                         </li>
