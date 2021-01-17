@@ -43,7 +43,7 @@
                             <a href="index.html"><i class="fa fa-sitemap"></i> <span class="nav-label">Transactions</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                <?php echo $this->Html->link('Transactions', array('controller' => 'Transactions'), array('escape' => false)); ?>
+                                <a href="/"></a>
                                 </li>
                             </ul>
                         </li>
