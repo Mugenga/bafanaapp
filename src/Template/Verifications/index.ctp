@@ -1,6 +1,6 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Transactions</h2>  
+        <h2>Pending Reviews</h2>  
     </div>
     <div class="col-lg-2">
     </div>
@@ -10,7 +10,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Transactions</h5>
+                    <h5>Reviews</h5>
                     <div class="ibox-tools">
                     </div>
                 </div>
@@ -19,25 +19,27 @@
                         <table class="table table-striped table-bordered table-hover dataTables-example" >
                             <thead>
                                 <tr>
-                                    <th>Trans #</th>
-                                    <th>Trans Date</th>
-                                    <th>User</th>
-                                    <th>Amount</th>
-                                    <th>Commission Rate</th>
-                                    <th>Commission</th>
-                                    <th>Due</th>
+                                    <th>User Id</th>
+                                    <th>Username</th>
+                                    <th>email</th>
+                                    <th>User Type</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($trans as $key => $value): ?>
+                                <?php foreach ($artists as $key => $value): ?>
                                     <tr>
                                         <td><?php echo $value["id"]; ?></td>
-                                        <td><?php echo $value['contribution_date']; ?></td>
-                                        <td><?php echo $value["username"]; ?></td>
-                                        <td><?php echo $value["amount"]; ?></td>
-                                        <td><?php echo $value["fee"]; ?> </td>
-                                        <td><?php echo $value["amount"] - $value["amount_due"]; ?> </td>
-                                        <td><?php echo $value["amount_due"] ; ?></td>
+                                        <td><?php echo $value['username']; ?></td>
+                                        <td><?php echo $value["email"]; ?></td>
+                                        <td><?php echo $value["user_type"]; ?></td>
+                                        <td><?php echo $value["status"]; ?> </td>
+                                        <td>
+                                            <?php
+                                                echo $this->Html->link('<button class="btn btn-primary btn-xs bt-action">Review</button>', array('controller' => 'verifications', 'action' => 'review', $value['id']), array('escape' => false));
+                                            ?>
+                                        </td>
                                     </tr>
                                 <?php endforeach; ?>                           
                             </tbody>

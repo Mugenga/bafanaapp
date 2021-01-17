@@ -23,6 +23,30 @@ class TransactionsTable extends Table {
         return $trans;
     }
 
+    public function GetPaymentTransactionsSum(){
+        $options = array(
+            'conditions' => array(
+                'transaction_type' => 'payment',
+                'payment_status' => 'posted'
+            )
+        );
+        $contributions = $this->find('all', $options);
+        $contributions->select(['count' => $contributions->func()->sum('amount')]);
+        return $contributions->toArray();
+    }
+
+    public function GetIncome(){
+        $options = array(
+            'conditions' => array(
+                'transaction_type' => 'payment',
+                'payment_status' => 'posted'
+            )
+        );
+        $contributions = $this->find('all', $options);
+        $contributions->select(['count' => $contributions->func()->sum('amount_due')]);
+        return $contributions->toArray();
+    }
+
     function GetMemberGroupTransactions($member_id, $group_id)
     {
         return $this->find('all', array('conditions' => array('member_id' => $member_id, 'group_id' => $group_id)))->toArray();

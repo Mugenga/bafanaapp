@@ -8,11 +8,23 @@ class DashboardController extends AppController {
 
     public function initialize() {
         parent::initialize();
+        $this->loadModel('Artists');
+        $this->loadModel('Transactions');
     }
 
     public function index() {
  
+        $users = $this->Artists->GetAllArtists();
+        $this->set('users', count($users));
 
+        $review = $this->Artists->GetUsersForReview();
+        $this->set('review', count($review));
+
+        $contributions = $this->Transactions->GetPaymentTransactionsSum();
+        $this->set('contributions', $contributions[0]->count);
+
+        $income = $this->Transactions->GetIncome();
+        $this->set('income', $contributions[0]->count - $income[0]->count);
         //District Co-ordinates
         // $distcords = $this->Districts->find('all');
         // $this->set('distcords', $distcords);
