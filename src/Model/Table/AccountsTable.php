@@ -8,17 +8,14 @@ class AccountsTable extends Table {
 
     public function initialize(array $config) {
         parent::initialize($config);
-        $this->table('mvd_member_accounts');
-        $this->belongsTo('Members');
+        $this->table('accounts');
+        $this->belongsTo('Artists');
     }
 
-    function SaveAccount($data) {
-        $reason = $this->newEntity($data);
-        if ($this->save($reason)) {
-            return $reason->account_number;
-        } else {
-            return 0;
-        }
+    function GeAccountsBalance() {
+        $contributions = $this->find('all');
+        $contributions->select(['count' => $contributions->func()->sum('account_balance')]);
+        return $contributions->toArray();
     }
     
     function UpdateAccount($data){

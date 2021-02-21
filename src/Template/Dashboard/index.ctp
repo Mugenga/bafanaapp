@@ -19,11 +19,11 @@
                             <div class="font-bold text-navy"><small>Users</small></div>
                         </div>
                         <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format(0); ?></h1>
+                            <h1 class="no-margins"><?php echo number_format($unsettled); ?></h1>
                             <div class="font-bold text-navy"><small>Unsettled</small></div>
                         </div>
                         <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format(0); ?></h1>
+                            <h1 class="no-margins"><?php echo number_format($settlements); ?></h1>
                             <div class="font-bold text-navy"><small>Settled</small></div>
                         </div>
                         <div class="col-md-2">

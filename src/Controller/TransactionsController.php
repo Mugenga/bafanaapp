@@ -19,10 +19,8 @@ class TransactionsController  extends AppController {
     }
 
     public function settlements() {
-        $groups = $this->Groups->find('all', array(
-            'contain' => array('Geodata')
-        ));
-        $this->set('groups', $groups);
+        $trans = $this->Transactions->GetRequestTransactions();
+        $this->set('trans', $trans);
     }
 
     function getAllGroups() {

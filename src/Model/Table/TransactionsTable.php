@@ -8,6 +8,9 @@ class TransactionsTable extends Table {
     public function initialize(array $config){
         parent::initialize($config);
         $this->table('transaction_history');
+        $this->belongsTo('User', array(
+            'foreignKey' => 'user_id',
+        ));
         // $this->belongsTo('Members');
         // $this->belongsTo('Savingsproducts', array(
         //     'foreignKey' => 'product_id',
@@ -16,7 +19,19 @@ class TransactionsTable extends Table {
 
     public function GetTransactions(){
         $trans = $this->find('all', array(
+            'contain' => ['User'],
             'conditions' => array(
+                'transaction_type' => 'payment',
+                'payment_status' => 'posted'
+            )
+        ));
+        return $trans;
+    }
+    public function GetRequestTransactions(){
+        $trans = $this->find('all', array(
+            'contain' => ['User'],
+            'conditions' => array(
+                'transaction_type' => 'request',
                 'payment_status' => 'posted'
             )
         ));
@@ -27,6 +42,18 @@ class TransactionsTable extends Table {
         $options = array(
             'conditions' => array(
                 'transaction_type' => 'payment',
+                'payment_status' => 'posted'
+            )
+        );
+        $contributions = $this->find('all', $options);
+        $contributions->select(['count' => $contributions->func()->sum('amount')]);
+        return $contributions->toArray();
+    }
+
+    public function GetRequestTransactionsSum(){
+        $options = array(
+            'conditions' => array(
+                'transaction_type' => 'request',
                 'payment_status' => 'posted'
             )
         );

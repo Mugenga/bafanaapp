@@ -10,6 +10,7 @@ class DashboardController extends AppController {
         parent::initialize();
         $this->loadModel('Artists');
         $this->loadModel('Transactions');
+        $this->loadModel('Accounts');
     }
 
     public function index() {
@@ -22,6 +23,13 @@ class DashboardController extends AppController {
 
         $contributions = $this->Transactions->GetPaymentTransactionsSum();
         $this->set('contributions', $contributions[0]->count);
+
+        $unsettled = $this->Accounts->GeAccountsBalance();
+        $this->set('unsettled', $unsettled[0]->count);
+
+        $settlements = $this->Transactions->GetRequestTransactionsSum();
+        $this->set('settlements', $settlements[0]->count);
+
 
         $income = $this->Transactions->GetIncome();
         $this->set('income', $contributions[0]->count - $income[0]->count);

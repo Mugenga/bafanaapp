@@ -9,6 +9,8 @@ class ArtistsTable extends Table {
         parent::initialize($config);
         $this->table('user');
         $this->hasMany("Profile");
+        $this->hasMany("Transaction");
+        $this->hasMany("Accounts");
     }
 
     public function GetAllArtists(){
@@ -23,6 +25,12 @@ class ArtistsTable extends Table {
             )
         ));
         return $user->first();
+    }
+    public function GetArtistsBalance(){
+        $user = $this->find('all', array(
+            'contain' => ['Accounts']
+        ));
+        return $user->toArray();
     }
 
     public function GetUsersForReview(){
