@@ -24,7 +24,7 @@
                                     <th>email</th>
                                     <th>User Type</th>
                                     <th>Balance</th>
-                                    <th>Profile</th>
+                                    <th>Has Profile</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,7 +38,10 @@
                                         <td>
                                             <?php 
                                                 if($value["profile"][0]['profile_picture'] == ''){
-                                                    echo "null";
+                                                    echo "No";
+                                                }
+                                                else{
+                                                    echo "Yes";
                                                 }
                                             ?>
                                         </td>
