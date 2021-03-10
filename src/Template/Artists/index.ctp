@@ -24,7 +24,7 @@
                                     <th>email</th>
                                     <th>User Type</th>
                                     <th>Balance</th>
-                                    <th>Action</th>
+                                    <th>Profile</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,7 +36,11 @@
                                         <td><?php echo $value["user_type"]; ?></td>
                                         <td><?php echo $value["accounts"][0]['account_balance']; ?> </td>
                                         <td>
-                                            
+                                            <?php 
+                                                if($value["profile"][0]['profile_picture'] == ''){
+                                                    echo "null";
+                                                }
+                                            ?>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>                           

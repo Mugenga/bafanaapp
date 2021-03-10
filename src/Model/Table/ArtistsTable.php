@@ -28,7 +28,7 @@ class ArtistsTable extends Table {
     }
     public function GetArtistsBalance(){
         $user = $this->find('all', array(
-            'contain' => ['Accounts']
+            'contain' => ['Accounts', 'Profile']
         ));
         return $user->toArray();
     }
