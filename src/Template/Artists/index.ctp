@@ -25,6 +25,7 @@
                                     <th>User Type</th>
                                     <th>Balance</th>
                                     <th>Has Profile</th>
+                                    <th>Joined</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,6 +46,7 @@
                                                 }
                                             ?>
                                         </td>
+                                        <td><?php echo $value["created_at"]; ?></td>
                                     </tr>
                                 <?php endforeach; ?>                           
                             </tbody>
