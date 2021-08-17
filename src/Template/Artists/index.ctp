@@ -22,6 +22,7 @@
                                     <th>User Id</th>
                                     <th>Username</th>
                                     <th>email</th>
+                                    <th>Phone Number</th>
                                     <th>User Type</th>
                                     <th>Balance</th>
                                     <th>Has Profile</th>
@@ -34,6 +35,7 @@
                                         <td><?php echo $value["id"]; ?></td>
                                         <td><?php echo $value['username']; ?></td>
                                         <td><?php echo $value["email"]; ?></td>
+                                        <td><?php echo $value["phone_number"]; ?></td>
                                         <td><?php echo $value["user_type"]; ?></td>
                                         <td><?php echo $value["accounts"][0]['account_balance']; ?> </td>
                                         <td>

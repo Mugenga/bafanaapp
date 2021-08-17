@@ -52,4 +52,14 @@ class ArtistsTable extends Table {
             return 0;
         }
     }
+
+    function UpdatePhoneNumber($id, $new_value){
+        $artist = $this->get($id);
+        $artist->phone_number = $new_value;
+        if ($this->save($artist)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
