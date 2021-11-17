@@ -34,8 +34,8 @@
                                         <td><?php echo $value["id"]; ?></td>
                                         <td><?php echo $value['contribution_date']; ?></td>
                                         <td><?php echo $value["user"]['username']; ?></td>
-                                        <td><?php echo $value["amount"]; ?></td>
-                                        <td><?php echo $value["fee"]; ?> </td>
+                                        <td><?php echo $value["amount"]." ".  $value["currency"]; ?></td>
+                                        <td><?php echo $value["fee"]; ?>% </td>
                                         <td><?php echo $value["amount"] - $value["amount_due"]; ?> </td>
                                         <td><?php echo $value["amount_due"] ; ?></td>
                                     </tr>

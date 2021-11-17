@@ -23,10 +23,12 @@
                                     <th>Username</th>
                                     <th>email</th>
                                     <th>Phone Number</th>
+                                    <th>Country</th>
                                     <th>User Type</th>
                                     <th>Balance</th>
                                     <th>Has Profile</th>
                                     <th>Joined</th>
+                                    <th>Last Seen</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,8 +38,9 @@
                                         <td><?php echo $value['username']; ?></td>
                                         <td><?php echo $value["email"]; ?></td>
                                         <td><?php echo $value["phone_number"]; ?></td>
+                                        <td><?php echo $value["country"]; ?></td>
                                         <td><?php echo $value["user_type"]; ?></td>
-                                        <td><?php echo $value["accounts"][0]['account_balance']; ?> </td>
+                                        <td><?php echo $value["accounts"][0]['account_balance'] ." ". $value["accounts"][0]['currency'] ; ?> </td>
                                         <td>
                                             <?php 
                                                 if($value["profile"][0]['profile_picture'] == ''){
@@ -49,6 +52,7 @@
                                             ?>
                                         </td>
                                         <td><?php echo $value["created_at"]; ?></td>
+                                        <td><?php echo $value["updated_at"]; ?></td>
                                     </tr>
                                 <?php endforeach; ?>                           
                             </tbody>

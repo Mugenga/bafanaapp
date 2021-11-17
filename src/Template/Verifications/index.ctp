@@ -22,6 +22,8 @@
                                     <th>User Id</th>
                                     <th>Username</th>
                                     <th>email</th>
+                                    <th>Phone Number</th>
+                                    <th>Country</th>
                                     <th>User Type</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -33,6 +35,8 @@
                                         <td><?php echo $value["id"]; ?></td>
                                         <td><?php echo $value['username']; ?></td>
                                         <td><?php echo $value["email"]; ?></td>
+                                        <td><?php echo $value["phone_number"]; ?></td>
+                                        <td><?php echo $value["country"]; ?></td>
                                         <td><?php echo $value["user_type"]; ?></td>
                                         <td><?php echo $value["status"]; ?> </td>
                                         <td>
