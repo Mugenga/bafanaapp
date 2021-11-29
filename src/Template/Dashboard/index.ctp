@@ -45,42 +45,82 @@
         <div class="col-sm-6" style="background-color: white">
             <canvas id="myChart"></canvas>
         </div>
+        <div class="col-sm-6" style="background-color: white">
+            <canvas id="transactionStats"></canvas>
+        </div>
     </div><!-- Row -->
 </div>
 <script>
-var dataA = <?php echo  $stats;?>;
-//dataA = JSON.parse(dataA);
-var time = [];
-var value1 = [];
-console.log(dataA)
-for (var i = 0; i < dataA.length; i++) {
-    var date = new Date( dataA[i].y).toDateString();
 
-    time.push(date);
-    console.log(date)
-    value1.push(parseInt(dataA[i].x));
-}
-console.log(time)
+dailyUsersStats();
+dailyTransactionStats();
 
+function dailyUsersStats(){
+    var dataA = <?php echo  $stats;?>;
+    var time = [];
+    var value1 = [];
+
+    for (var i = 0; i < dataA.length; i++) {
+        var date = new Date( dataA[i].y).toDateString();
+
+        time.push(date);
+        console.log(date)
+        value1.push(parseInt(dataA[i].x));
+    }
 
     const labels = time;
-const data = {
-  labels: labels,
-  datasets: [{
-    label: 'Daily User Registration',
-    data: value1,
-    fill: false,
-    borderColor: 'rgb(75, 192, 192)',
-    tension: 0.1
-  }]
-};
- const config = {
-    type: 'line',
-    data: data,
+    const data = {
+    labels: labels,
+    datasets: [{
+        label: 'Daily User Registration',
+        data: value1,
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+    }]
     };
-  // === include 'setup' then 'config' above ===
-  const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
-  );
+    const config = {
+        type: 'line',
+        data: data,
+        };
+    // === include 'setup' then 'config' above ===
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+}
+function dailyTransactionStats(){
+    var dataA = <?php echo  $tranStat;?>;
+    var time = [];
+    var value1 = [];
+
+    for (var i = 0; i < dataA.length; i++) {
+        var date = new Date( dataA[i].y).toDateString();
+
+        time.push(date);
+        console.log(date)
+        value1.push(parseInt(dataA[i].x));
+    }
+
+    const labels = time;
+    const data = {
+    labels: labels,
+    datasets: [{
+        label: 'Daily Transactions',
+        data: value1,
+        fill: false,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1
+    }]
+    };
+    const config = {
+        type: 'line',
+        data: data,
+        };
+    // === include 'setup' then 'config' above ===
+    const myChart = new Chart(
+        document.getElementById('transactionStats'),
+        config
+    );
+}
 </script>

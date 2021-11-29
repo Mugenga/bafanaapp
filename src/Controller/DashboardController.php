@@ -37,6 +37,10 @@ class DashboardController extends AppController {
         $stats = $this->Artists->GetSignUpStats();
         $stats = json_encode($stats);
         $this->set('stats', $stats);
+
+        $tranStat = $this->Transactions->GetStats();
+        $tranStat = json_encode($tranStat);
+        $this->set('tranStat', $tranStat);
         //District Co-ordinates
         // $distcords = $this->Districts->find('all');
         // $this->set('distcords', $distcords);

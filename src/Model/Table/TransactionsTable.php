@@ -91,4 +91,17 @@ class TransactionsTable extends Table {
                 )
             ))->toArray();
     }
+
+    function GetStats(){
+        return $this->find('all', array(
+            'fields' => [
+                'x' => 'COUNT(id)',
+                'y' => 'DATE(contribution_date)'
+            ],
+            'conditions' => array(
+                'payment_status' => 'posted'
+            ),
+            'group' => 'y'
+        ));
+    }
 }
