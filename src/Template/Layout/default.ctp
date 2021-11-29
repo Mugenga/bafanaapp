@@ -18,6 +18,7 @@
 
         echo $this->Html->script('insp/jquery-2.1.1');
         ?>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body class="mini-navbar pace-done">
         <div id="wrapper">

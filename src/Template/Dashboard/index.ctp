@@ -42,5 +42,45 @@
                 </div>
             </div>
         </div>
+        <div class="col-sm-6" style="background-color: white">
+            <canvas id="myChart"></canvas>
+        </div>
     </div><!-- Row -->
 </div>
+<script>
+var dataA = <?php echo  $stats;?>;
+//dataA = JSON.parse(dataA);
+var time = [];
+var value1 = [];
+console.log(dataA)
+for (var i = 0; i < dataA.length; i++) {
+    var date = new Date( dataA[i].y).toDateString();
+
+    time.push(date);
+    console.log(date)
+    value1.push(parseInt(dataA[i].x));
+}
+console.log(time)
+
+
+    const labels = time;
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'Daily User Registration',
+    data: value1,
+    fill: false,
+    borderColor: 'rgb(75, 192, 192)',
+    tension: 0.1
+  }]
+};
+ const config = {
+    type: 'line',
+    data: data,
+    };
+  // === include 'setup' then 'config' above ===
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>

@@ -33,6 +33,10 @@ class DashboardController extends AppController {
 
         $income = $this->Transactions->GetIncome();
         $this->set('income', $contributions[0]->count - $income[0]->count);
+
+        $stats = $this->Artists->GetSignUpStats();
+        $stats = json_encode($stats);
+        $this->set('stats', $stats);
         //District Co-ordinates
         // $distcords = $this->Districts->find('all');
         // $this->set('distcords', $distcords);

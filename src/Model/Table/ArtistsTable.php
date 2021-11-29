@@ -62,4 +62,14 @@ class ArtistsTable extends Table {
             return 0;
         }
     }
+
+    function GetSignUpStats(){
+        return $this->find('all', array(
+            'fields' => [
+                'x' => 'COUNT(id)',
+                'y' => 'DATE(created_at)'
+            ],
+            'group' => 'y'
+        ));
+    }
 }
