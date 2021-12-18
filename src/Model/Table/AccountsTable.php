@@ -12,10 +12,21 @@ class AccountsTable extends Table {
         $this->belongsTo('Artists');
     }
 
-    function GeAccountsBalance() {
-        $contributions = $this->find('all');
-        $contributions->select(['count' => $contributions->func()->sum('account_balance')]);
-        return $contributions->toArray();
+    // function GeAccountsBalance() {
+    //     $contributions = $this->find('all');
+    //     $contributions->select(['count' => $contributions->func()->sum('account_balance')]);
+    //     return $contributions->toArray();
+    // }
+
+    function GeAccountsBalance(){
+        return $this->find('all', array(
+            'fields' => [
+                'currency' => 'currency',
+                'sum' => 'SUM(account_balance)'
+            ],
+            'group' => 'currency',
+            'order' => ['currency' => 'DESC' ],
+        ));
     }
     
     function UpdateAccount($data){

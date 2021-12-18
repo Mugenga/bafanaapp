@@ -72,4 +72,16 @@ class ArtistsTable extends Table {
             'group' => 'y'
         ));
     }
+
+    function GetUsersByCountry() {
+        $options = array(
+            'fields' => [
+                'country' => 'country',
+                'count' => 'COUNT(id)'
+            ],
+            'group' => 'country',
+            'order' => ['country' => 'DESC' ],
+        );
+        return $this->find('all', $options);
+    }
 }

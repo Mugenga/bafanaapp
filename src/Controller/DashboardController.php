@@ -18,21 +18,25 @@ class DashboardController extends AppController {
         $users = $this->Artists->GetAllArtists();
         $this->set('users', count($users));
 
+        $usersByCountry = $this->Artists->GetUsersByCountry();
+        $this->set('usersByCountry', $usersByCountry);
+
         $review = $this->Artists->GetUsersForReview();
         $this->set('review', count($review));
 
         $contributions = $this->Transactions->GetPaymentTransactionsSum();
-        $this->set('contributions', $contributions[0]->count);
+        $this->set('contributions', $contributions);
 
         $unsettled = $this->Accounts->GeAccountsBalance();
-        $this->set('unsettled', $unsettled[0]->count);
+        $this->set('unsettled', $unsettled);
 
         $settlements = $this->Transactions->GetRequestTransactionsSum();
-        $this->set('settlements', $settlements[0]->count);
+        $this->set('settlements', $settlements);
 
 
         $income = $this->Transactions->GetIncome();
-        $this->set('income', $contributions[0]->count - $income[0]->count);
+        $this->set('income', 0);
+        //$this->set('income', $contributions[0]->count - $income[0]->count);
 
         $stats = $this->Artists->GetSignUpStats();
         $stats = json_encode($stats);

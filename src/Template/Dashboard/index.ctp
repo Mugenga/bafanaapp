@@ -19,26 +19,78 @@
                             <div class="font-bold text-navy"><small>Users</small></div>
                         </div>
                         <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format($unsettled); ?></h1>
-                            <div class="font-bold text-navy"><small>Unsettled</small></div>
-                        </div>
-                        <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format($settlements); ?></h1>
-                            <div class="font-bold text-navy"><small>Settled</small></div>
-                        </div>
-                        <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format($income); ?></h1>
-                            <div class="font-bold text-navy"><small>Income</small></div>
-                        </div>
-                        <div class="col-md-2">
-                            <h1 class="no-margins"><?php echo number_format($contributions); ?></h1>
-                            <div class="font-bold text-navy"><small>Contributions</small></div>
-                        </div>
-                        <div class="col-md-2">
                             <h1 class="no-margins"><?php echo number_format($review); ?></h1>
                             <div class="font-bold text-navy"><small>New Users</small></div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Users by Country</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <?php foreach ($usersByCountry as $key => $value): ?>
+                        <div class="col-md-2">
+                            <h1 class="no-margins"><?php echo number_format($value["count"]); ?></h1>
+                            <div class="font-bold text-navy"><?php echo $value["country"]; ?></div>
+                        </div>
+                        <?php endforeach; ?>  
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>All Contributions</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <?php foreach ($contributions as $key => $value): ?>
+                        <div class="col-md-2">
+                            <h1 class="no-margins"><?php echo number_format($value["sum"]); ?></h1>
+                            <div class="font-bold text-navy"><?php echo $value["currency"]; ?></div>
+                        </div>
+                        <?php endforeach; ?>  
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Unsettled Money</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <?php foreach ($unsettled as $key => $value): ?>
+                        <div class="col-md-2">
+                            <h1 class="no-margins"><?php echo number_format($value["sum"]); ?></h1>
+                            <div class="font-bold text-navy"><?php echo $value["currency"]; ?></div>
+                        </div>
+                        <?php endforeach; ?>  
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Settled Money</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="row">
+                        <?php foreach ($settlements as $key => $value): ?>
+                        <div class="col-md-2">
+                            <h1 class="no-margins"><?php echo number_format($value["sum"]); ?></h1>
+                            <div class="font-bold text-navy"><?php echo $value["currency"]; ?></div>
+                        </div>
+                        <?php endforeach; ?>  
+                    </div> 
                 </div>
             </div>
         </div>

@@ -43,11 +43,15 @@ class TransactionsTable extends Table {
             'conditions' => array(
                 'transaction_type' => 'payment',
                 'payment_status' => 'posted'
-            )
+            ),
+            'fields' => [
+                'currency' => 'currency',
+                'sum' => 'SUM(amount)'
+            ],
+            'group' => 'currency',
+            'order' => ['currency' => 'DESC' ],
         );
-        $contributions = $this->find('all', $options);
-        $contributions->select(['count' => $contributions->func()->sum('amount')]);
-        return $contributions->toArray();
+        return $this->find('all', $options);
     }
 
     public function GetRequestTransactionsSum(){
@@ -55,11 +59,15 @@ class TransactionsTable extends Table {
             'conditions' => array(
                 'transaction_type' => 'request',
                 'payment_status' => 'posted'
-            )
+            ),
+            'fields' => [
+                'currency' => 'currency',
+                'sum' => 'SUM(amount)'
+            ],
+            'group' => 'currency',
+            'order' => ['currency' => 'DESC' ],
         );
-        $contributions = $this->find('all', $options);
-        $contributions->select(['count' => $contributions->func()->sum('amount')]);
-        return $contributions->toArray();
+        return $this->find('all', $options);
     }
 
     public function GetIncome(){
