@@ -71,7 +71,7 @@ class ArtistsTable extends Table {
             ],
             'conditions' => array(
                 'status' => 'active',
-                'created_at' => '>= 2021-06-01'
+                'created_at >=' => '2021-06-01'
             ),
             'group' => 'y'
         ));
