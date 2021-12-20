@@ -69,6 +69,10 @@ class ArtistsTable extends Table {
                 'x' => 'COUNT(id)',
                 'y' => 'DATE(created_at)'
             ],
+            'conditions' => array(
+                'status' => 'active',
+                'created_at' => '2021-06-01'
+            ),
             'group' => 'y'
         ));
     }
