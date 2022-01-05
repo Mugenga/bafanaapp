@@ -40,7 +40,7 @@ class VerificationsController  extends AppController {
         // Initiate curl session in a variable (resource)
         $curl_handle = curl_init();
 
-        $url = LOCAL_API_URL."sendmail/".$id;
+        $url = LOCAL_API_URL."/mails/sendmail/".$id;
 
         // Set the curl URL option
         curl_setopt($curl_handle, CURLOPT_URL, $url);

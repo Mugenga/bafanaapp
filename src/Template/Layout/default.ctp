@@ -61,7 +61,10 @@
                             <a href="index.html"><i class="fa fa-sitemap"></i> <span class="nav-label">Users</span> <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                <?php echo $this->Html->link('Users', array('controller' => 'Artists', 'action' => 'Index'), array('escape' => false)); ?>
+                                    <?php echo $this->Html->link('Active Users', array('controller' => 'Artists', 'action' => 'Index'), array('escape' => false)); ?>
+                                </li>
+                                <li>
+                                    <?php echo $this->Html->link('Inactive Users', array('controller' => 'Artists', 'action' => 'inactive'), array('escape' => false)); ?>
                                 </li>
                                 <li>
                                 <?php echo $this->Html->link('Pending Reviews', array('controller' => 'Verifications', 'action' => 'Index'), array('escape' => false)); ?>

@@ -24,6 +24,12 @@ class DashboardController extends AppController {
         $review = $this->Artists->GetUsersForReview();
         $this->set('review', count($review));
 
+        $active = $this->Artists->GetArtistsBalance();
+        $this->set('active', count($active));
+
+        $inactive = $this->Artists->GetInactiveArtists();
+        $this->set('inactive', count($inactive));
+
         $contributions = $this->Transactions->GetPaymentTransactionsSum();
         $this->set('contributions', $contributions);
 

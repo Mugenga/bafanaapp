@@ -28,7 +28,20 @@ class ArtistsTable extends Table {
     }
     public function GetArtistsBalance(){
         $user = $this->find('all', array(
-            'contain' => ['Accounts', 'Profile']
+            'contain' => ['Accounts', 'Profile'],
+            'conditions' => array(
+                'status' => 'active',
+            )
+        ));
+        return $user->toArray();
+    }
+
+    public function GetInactiveArtists(){
+        $user = $this->find('all', array(
+            'contain' => ['Accounts', 'Profile'],
+            'conditions' => array(
+                'status' => 'inactive',
+            )
         ));
         return $user->toArray();
     }
@@ -71,7 +84,7 @@ class ArtistsTable extends Table {
             ],
             'conditions' => array(
                 'status' => 'active',
-                'created_at >=' => '2021-06-01'
+                'created_at >=' => '2021-09-01'
             ),
             'group' => 'y'
         ));

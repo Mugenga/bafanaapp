@@ -108,7 +108,7 @@ class TransactionsTable extends Table {
             ],
             'conditions' => array(
                 'payment_status' => 'posted',
-                'contribution_date >=' => '2021-06-01'
+                'contribution_date >=' => '2021-09-01'
             ),
             'group' => 'y'
         ));

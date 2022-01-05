@@ -14,6 +14,11 @@ class ArtistsController  extends AppController {
         $artists = $this->Artists->GetArtistsBalance();
         $this->set('artists', $artists);
     }
+
+    public function inactive() {
+        $artists = $this->Artists->GetInactiveArtists();
+        $this->set('artists', $artists);
+    }
     
     public function isAuthorized($user) {
         return true;

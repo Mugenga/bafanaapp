@@ -22,6 +22,14 @@
                             <h1 class="no-margins"><?php echo number_format($review); ?></h1>
                             <div class="font-bold text-navy"><small>New Users</small></div>
                         </div>
+                        <div class="col-md-2">
+                            <h1 class="no-margins"><?php echo number_format($active); ?></h1>
+                            <div class="font-bold text-navy"><small>Active</small></div>
+                        </div>
+                        <div class="col-md-2">
+                            <h1 class="no-margins"><?php echo number_format($inactive); ?></h1>
+                            <div class="font-bold text-navy"><small>Inactive</small></div>
+                        </div>
                     </div>
                 </div>
             </div>
