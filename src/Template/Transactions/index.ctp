@@ -20,9 +20,12 @@
                             <thead>
                                 <tr>
                                     <th>Trans #</th>
+                                    <th>Ticket ID</th>
                                     <th>Trans Date</th>
                                     <th>User</th>
                                     <th>Amount</th>
+                                    <th>Phone Number</th>
+                                    <th>Full Name</th>
                                     <th>Commission Rate</th>
                                     <th>Commission</th>
                                     <th>Due</th>
@@ -32,9 +35,12 @@
                                 <?php foreach ($trans as $key => $value): ?>
                                     <tr>
                                         <td><?php echo $value["id"]; ?></td>
+                                        <td><?php echo $value["ticket_id"]; ?></td>
                                         <td><?php echo $value['contribution_date']; ?></td>
                                         <td><?php echo $value["user"]['username']; ?></td>
                                         <td><?php echo $value["amount"]." ".  $value["currency"]; ?></td>
+                                        <td><?php echo $value["phone_number"]; ?></td>
+                                        <td><?php echo $value["full_name"]; ?></td>
                                         <td><?php echo $value["fee"]; ?>% </td>
                                         <td><?php echo $value["amount"] - $value["amount_due"]; ?> </td>
                                         <td><?php echo $value["amount_due"] ; ?></td>
